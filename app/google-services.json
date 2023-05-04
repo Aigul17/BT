@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "897501080407",
+    "project_id": "bt-iot-438ba",
+    "storage_bucket": "bt-iot-438ba.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:897501080407:android:5a45935b3941e5eef82c12",
+        "android_client_info": {
+          "package_name": "com.example.bt"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "897501080407-hev4qkmmd97550upjg3nqfmtohk2h6jg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBgwPijCKi5bG9EY3VS5hs_ynYAfepJoks"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "897501080407-hev4qkmmd97550upjg3nqfmtohk2h6jg.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
