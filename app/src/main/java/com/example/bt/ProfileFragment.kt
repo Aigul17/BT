@@ -1,12 +1,20 @@
 package com.example.bt
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
+import android.widget.Toast
 import androidx.fragment.app.Fragment
+
+
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
+import java.util.*
 
 class ProfileFragment : Fragment() {
 
@@ -15,6 +23,11 @@ class ProfileFragment : Fragment() {
     private lateinit var birthdayEditText: EditText
     private lateinit var phoneEditText: EditText
 
+
+
+    private lateinit var database: DatabaseReference
+
+    @SuppressLint("MissingInflatedId")
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -31,6 +44,43 @@ class ProfileFragment : Fragment() {
             requireActivity().supportFragmentManager.popBackStack()
         }
 
+        // Initialize Firebase database reference
+        database = FirebaseDatabase.getInstance().reference
+
+        val saveButton = view.findViewById<Button>(R.id.save_button)
+        saveButton.setOnClickListener {
+            saveUserData()
+        }
+
         return view
     }
+
+    private fun saveUserData() {
+        val name = nameEditText.text.toString()
+        val surname = surnameEditText.text.toString()
+        val birthday = birthdayEditText.text.toString()
+        val phone = phoneEditText.text.toString()
+
+        val userId = UUID.randomUUID().toString() // Generate a unique ID for the user
+
+        val user = User(userId, name, surname, birthday, phone)
+
+        // Save user data to Firebase database
+        database.child("users").child(userId).setValue(user)
+            .addOnSuccessListener {
+                Toast.makeText(requireContext(), "User data saved.", Toast.LENGTH_SHORT).show()
+            }
+            .addOnFailureListener {
+                Toast.makeText(requireContext(), "Failed to save user data.", Toast.LENGTH_SHORT).show()
+            }
+    }
 }
+
+data class User(
+    val userId: String,
+    val name: String,
+    val surname: String,
+    val birthday: String,
+    val phone: String
+)
+

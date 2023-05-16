@@ -96,6 +96,16 @@
         android:layout_marginTop="3dp"
         android:hint="Enter your phone number" />
 
+    <Button
+        android:id="@+id/save_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Save"
+        android:textColor="@color/white"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
+        android:layout_below="@id/phone_edit_text" />
+
 
 
 

@@ -18,7 +18,7 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val intent = Intent(this, LogSignActivity::class.java)
+        val intent = Intent(this, MainActivity::class.java)
         startActivity(intent)
 
 
