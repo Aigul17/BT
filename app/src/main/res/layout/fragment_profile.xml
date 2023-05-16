@@ -9,23 +9,94 @@
 
     <!-- TODO: Update blank fragment layout -->
 
+
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
+        android:id="@+id/logo_button"
+        android:layout_width="142dp"
+        android:layout_height="44dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="582dp"
         android:orientation="horizontal"
         android:text="@string/app_name"
         android:textColor="@color/green"
         android:textSize="30sp"
-        android:textStyle="bold" />
-
+        android:textStyle="bold"
+        />
 
     <TextView
+        android:id="@+id/name_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Profile Fragment"
-        android:textSize="30sp"
-        android:layout_centerInParent="true"
-        android:textColor="@color/green" />
+        android:text="Name"
+        android:textColor="@color/green"
+        android:textSize="20sp"
+        android:layout_marginTop="80dp"
+        />
+
+
+
+
+    <EditText
+        android:id="@+id/name_edit_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/name_label"
+        android:layout_marginTop="3dp"
+        android:textColor="@color/green"
+        android:hint="Enter your name" />
+
+    <TextView
+        android:id="@+id/surname_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/name_edit_text"
+        android:text="Surname"
+        android:textColor="@color/green"
+        android:textSize="20sp" />
+
+    <EditText
+        android:id="@+id/surname_edit_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/surname_label"
+        android:textColor="@color/green"
+        android:hint="Enter your surname" />
+
+    <TextView
+        android:id="@+id/birthday_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/surname_edit_text"
+        android:text="Birthday"
+        android:textColor="@color/green"
+        android:textSize="20sp" />
+
+    <EditText
+        android:id="@+id/birthday_edit_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/birthday_label"
+        android:textColor="@color/green"
+        android:hint="Enter your birthday date" />
+
+    <TextView
+        android:id="@+id/phone_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/birthday_edit_text"
+        android:text="Phone"
+        android:textColor="@color/green"
+        android:textSize="20sp" />
+
+    <EditText
+        android:id="@+id/phone_edit_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/phone_label"
+        android:layout_marginTop="3dp"
+        android:hint="Enter your phone number" />
+
+
+
 
 </RelativeLayout>
