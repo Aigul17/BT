@@ -13,10 +13,10 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.bt.databinding.ActivityLoginBinding
 import com.google.firebase.auth.FirebaseAuth
 
-class LoginActivity : AppCompatActivity() {
+open class LoginActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityLoginBinding
-    private lateinit var firebaseAuth: FirebaseAuth
+    open lateinit var firebaseAuth: FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,7 +40,7 @@ class LoginActivity : AppCompatActivity() {
                     }
                 }
             } else {
-                Toast.makeText(this, "Fields cannot be empty", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Строки не могут быть пустыми", Toast.LENGTH_SHORT).show()
             }
         }
 
@@ -86,4 +86,5 @@ class LoginActivity : AppCompatActivity() {
                 }
             }
     }
+    fun loginWithEmailAndPassword(email: String, password: String): Any? = Unit
 }

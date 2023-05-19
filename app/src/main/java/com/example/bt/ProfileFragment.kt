@@ -68,10 +68,10 @@ class ProfileFragment : Fragment() {
         // Save user data to Firebase database
         database.child("users").child(userId).setValue(user)
             .addOnSuccessListener {
-                Toast.makeText(requireContext(), "User data saved.", Toast.LENGTH_SHORT).show()
+                Toast.makeText(requireContext(), "Ваши данные сохранены", Toast.LENGTH_SHORT).show()
             }
             .addOnFailureListener {
-                Toast.makeText(requireContext(), "Failed to save user data.", Toast.LENGTH_SHORT).show()
+                Toast.makeText(requireContext(), "Не удалось сохранить ваши данные", Toast.LENGTH_SHORT).show()
             }
     }
 }

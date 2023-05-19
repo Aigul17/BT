@@ -1,9 +1,9 @@
 package com.example.bt
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.example.bt.databinding.ActivitySignupBinding
 import com.google.firebase.auth.FirebaseAuth
 
@@ -39,7 +39,7 @@ class SignupActivity : AppCompatActivity() {
                     Toast.makeText(this, "Пароль не совпадает", Toast.LENGTH_SHORT).show()
                 }
             } else {
-                Toast.makeText(this, "Сторки не могут быть пустыми", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Строки не могут быть пустыми", Toast.LENGTH_SHORT).show()
             }
         }
         binding.loginRedirectText.setOnClickListener {

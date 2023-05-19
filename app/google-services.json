@@ -1,33 +1,33 @@
 {
   "project_info": {
-    "project_number": "897501080407",
-    "project_id": "bt-iot-438ba",
-    "storage_bucket": "bt-iot-438ba.appspot.com"
+    "project_number": "155892484751",
+    "project_id": "diploma-fe3d8",
+    "storage_bucket": "diploma-fe3d8.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:897501080407:android:5a45935b3941e5eef82c12",
+        "mobilesdk_app_id": "1:155892484751:android:be50fdccbfefc3a9a73efa",
         "android_client_info": {
           "package_name": "com.example.bt"
         }
       },
       "oauth_client": [
         {
-          "client_id": "897501080407-hev4qkmmd97550upjg3nqfmtohk2h6jg.apps.googleusercontent.com",
+          "client_id": "155892484751-trtdf5rv807jliovoa3kskneh4edboli.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyBgwPijCKi5bG9EY3VS5hs_ynYAfepJoks"
+          "current_key": "AIzaSyClZBzfZ227VB4FM0QClGLwpqwnM76-OjM"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "897501080407-hev4qkmmd97550upjg3nqfmtohk2h6jg.apps.googleusercontent.com",
+              "client_id": "155892484751-trtdf5rv807jliovoa3kskneh4edboli.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
