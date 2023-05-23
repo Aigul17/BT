@@ -1,4 +1,4 @@
-package com.example.bt
+package com.example.bt.activities
 
 
 import android.Manifest
@@ -7,27 +7,23 @@ import android.app.Service
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.location.LocationRequest
+import android.os.Build
 import android.os.Bundle
-import android.support.v4.app.ActivityCompat
-import android.support.v7.widget.SwitchCompat
 import android.telephony.TelephonyCallback
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
+import androidx.annotation.RequiresApi
 import androidx.appcompat.widget.SwitchCompat
 import androidx.core.app.ActivityCompat
 import com.firebase.ui.auth.AuthUI
 import com.google.android.gms.common.api.ResolvableApiException
-import com.google.android.gms.location.LocationRequest
 import com.google.android.gms.location.LocationServices
 import com.google.android.gms.location.LocationSettingsRequest
 import com.google.firebase.firestore.*
-import bt.bustracking.*
-import bt.bustracking.R
-import bt.bustracking.models.OnlineBus
-import bt.bustracking.models.User
-import bt.bustracking.services.LocationUpdaterService
+import com.example.bt.*
+import com.example.bt.activities.BaseActivity
 import com.example.bt.models.OnlineBus
 import kotlinx.android.synthetic.main.activity_bus_driver.*
 import kotlinx.android.synthetic.main.activity_home.*
@@ -37,6 +33,7 @@ import java.lang.Exception
 const val REQ_CODE_1 = 111
 const val REQ_CODE_2 = 222
 
+@RequiresApi(Build.VERSION_CODES.S)
 class BusDriverActivity : BaseActivity(), TelephonyCallback.ServiceStateListener {
 
     // listen to user approval or deletion

@@ -1,4 +1,4 @@
-package com.example.bt
+package com.example.bt.fragments
 
 import android.os.Bundle
 import android.support.v4.app.Fragment
@@ -9,8 +9,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import bt.bustracking.R
 import bt.bustracking.adapters.AnyAdapter
+import com.example.bt.R
 
 
 open class ListFragment : Fragment() {

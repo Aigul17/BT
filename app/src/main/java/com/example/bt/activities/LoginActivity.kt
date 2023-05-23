@@ -1,4 +1,4 @@
-package com.example.bt
+package com.example.bt.activities
 
 
 import android.content.Intent
@@ -10,6 +10,7 @@ import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import com.example.bt.R
 import com.example.bt.databinding.ActivityLoginBinding
 import com.google.firebase.auth.FirebaseAuth
 

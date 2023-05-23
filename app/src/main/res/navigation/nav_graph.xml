@@ -6,7 +6,7 @@
 
     <fragment
         android:id="@+id/welcomeFragment"
-        android:name="com.example.bt.WelcomeFragment"
+        android:name="com.example.bt.fragments.WelcomeFragment"
         android:label="WelcomeFragment">
 
         <action
@@ -17,7 +17,7 @@
 
     <activity
         android:id="@+id/mainActivity"
-        android:name="com.example.bt.MainActivity"
+        android:name="com.example.bt.activities.MainActivity"
         android:label="MainActivity" >
 <!--        <intent-filter>-->
 <!--            <action android:name="android.intent.action.MAIN" />-->

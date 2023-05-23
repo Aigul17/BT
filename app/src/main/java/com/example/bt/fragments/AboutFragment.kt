@@ -1,4 +1,4 @@
-package com.example.bt
+package com.example.bt.fragments
 
 
 
@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.fragment.app.Fragment
+import com.example.bt.R
 
 class AboutFragment : Fragment() {
 

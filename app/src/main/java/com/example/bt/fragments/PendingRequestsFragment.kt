@@ -1,16 +1,15 @@
-package com.example.bt
+package com.example.bt.fragments
 
 import android.os.Bundle
 import android.support.design.widget.TabLayout
-import android.support.v4.app.Fragment
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import bt.bustracking.R
-import bt.bustracking.activities.TransportControllerActivity
 import bt.bustracking.adapters.TabViewPagerAdapter
+import com.example.bt.R
+import com.example.bt.activities.TransportControllerActivity
 import kotlinx.android.synthetic.main.fragment_pending_request.*
 
 class PendingRequestsFragment : Fragment() {

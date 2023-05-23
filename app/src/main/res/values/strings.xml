@@ -8,4 +8,14 @@
         Надеюсь наша команда сможет вам помочь в вашем маршруте. С уважением команда проекта Trackg!"</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="all_buses" />
+    <string name="confirm_delete" />
+    <string name="press_again_to_exit" />
+    <string name="confirm_logout" />
+    <string name="ok" />
+    <string name="error_login">error login</string>
+    <string name="user_deleted">User deleted</string>
+    <string name="turn_on_location">turn on location</string>
+    <string name="service_stopped">servide stopped</string>
+    <string name="dismiss">dismiss</string>
 </resources>

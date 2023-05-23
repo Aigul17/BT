@@ -8,8 +8,8 @@ import android.location.Geocoder
 import android.util.Log
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.GeoPoint
-import friendroid.bustracking.fireSettings
-import friendroid.bustracking.mUser
+import com.example.bt.fireSettings
+import com.example.bt.mUser
 import java.lang.Exception
 
 class LocationNameResolverService : IntentService("LocationResolver") {

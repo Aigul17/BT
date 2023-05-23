@@ -1,7 +1,7 @@
-package com.example.bt
+package com.example.bt.fragments
 
 import android.os.Bundle
-import bt.bustracking.R
+import com.example.bt.R
 
 open class OnlineBusesFragment : ListFragment() {
     override fun onCreate(savedInstanceState: Bundle?) {

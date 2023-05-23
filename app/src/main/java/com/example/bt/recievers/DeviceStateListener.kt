@@ -1,19 +1,26 @@
-package com.example.bt
+package com.example.bt.recievers
 
+
+
+import android.Manifest
 import android.app.PendingIntent
 import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.location.LocationManager
 import android.net.ConnectivityManager
+import android.os.Build
 import android.support.v4.app.NotificationCompat
 import android.support.v4.app.NotificationManagerCompat
 import android.widget.Toast
+import androidx.annotation.RequiresApi
+import androidx.core.app.ActivityCompat
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
-import bt.bustracking.*
-import bt.bustracking.activities.BusDriverActivity
-import bt.bustracking.services.LocationUpdaterService
+import com.example.bt.*
+import com.example.bt.BusDriverActivity
+import com.example.bt.services.LocationUpdaterService
 
 class DeviceStateListener : BroadcastReceiver() {
     override fun onReceive(context: Context?, intent: Intent?) {
@@ -34,6 +41,7 @@ class DeviceStateListener : BroadcastReceiver() {
         }
     }
 
+    @RequiresApi(Build.VERSION_CODES.S)
     private fun showError(context: Context?) {
         // show a notification saying that the service has stopped due to provider was disabled.
         context ?: return
@@ -50,6 +58,20 @@ class DeviceStateListener : BroadcastReceiver() {
             .setPriority(NotificationCompat.PRIORITY_HIGH)
         NotificationManagerCompat.from(context).apply {
             cancel(222)
+            if (ActivityCompat.checkSelfPermission(
+                    this,
+                    Manifest.permission.POST_NOTIFICATIONS
+                ) != PackageManager.PERMISSION_GRANTED
+            ) {
+                // TODO: Consider calling
+                //    ActivityCompat#requestPermissions
+                // here to request the missing permissions, and then overriding
+                //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+                //                                          int[] grantResults)
+                // to handle the case where the user grants the permission. See the documentation
+                // for ActivityCompat#requestPermissions for more details.
+                return
+            }
             notify(999, notification.build())
         }
         Toast.makeText(context, R.string.turn_on_location, Toast.LENGTH_SHORT).show()

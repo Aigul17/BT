@@ -9,7 +9,7 @@
     android:fitsSystemWindows="true"
     android:padding="10dp"
     tools:openDrawer="start"
-    tools:context=".MainActivity">
+    tools:context=".activities.MainActivity">
 
 
 

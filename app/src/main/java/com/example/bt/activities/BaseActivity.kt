@@ -1,4 +1,4 @@
-package com.example.bt
+package com.example.bt.activities
 
 
 
@@ -7,19 +7,16 @@ import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
-import android.support.v7.app.AlertDialog
-import android.support.v7.app.AppCompatActivity
 import android.view.LayoutInflater
 import android.view.View
 import android.webkit.WebView
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.firebase.ui.auth.AuthUI
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.*
-import bt.bustracking.*
-import bt.bustracking.R
-import bt.bustracking.models.User
+import com.example.bt.*
 import me.zhanghai.android.materialprogressbar.MaterialProgressBar
 import java.lang.Exception
 
@@ -97,12 +94,12 @@ abstract class BaseActivity : AppCompatActivity() {
                         mUser = snapshot.toObject(User::class.java) ?: User()
                         val role = mUser.role
                         if (role.isEmpty()) {
-                            startActivity(Intent(baseContext, RegistrationActivity::class.java))
+                            startActivity(Intent(baseContext, LoginActivity::class.java))
                         } else when (role) {
                             "admin" -> startActivity(Intent(baseContext, TransportControllerActivity::class.java))
-                            "teacher" -> startActivity(Intent(baseContext, TeacherActivity::class.java))
+                            "user" -> startActivity(Intent(baseContext, UserActivity::class.java))
                             "driver" -> startActivity(Intent(baseContext, BusDriverActivity::class.java))
-                            else -> startActivity(Intent(baseContext, RegistrationActivity::class.java))
+                            else -> startActivity(Intent(baseContext, LoginActivity::class.java))
                         }
                         finish()
                     }.addOnFailureListener { e ->

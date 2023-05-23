@@ -1,4 +1,4 @@
-package com.example.bt
+package com.example.bt.activities
 
 import android.app.PendingIntent
 import android.content.Context
@@ -6,9 +6,6 @@ import android.content.Intent
 import android.content.SharedPreferences
 import android.media.RingtoneManager
 import android.os.Bundle
-import android.support.v4.app.NotificationCompat
-import android.support.v4.app.NotificationManagerCompat
-import android.support.v7.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationCompat.EXTRA_NOTIFICATION_ID
@@ -18,8 +15,14 @@ import com.google.android.gms.maps.model.*
 import com.google.firebase.firestore.*
 import com.google.firebase.firestore.EventListener
 import bt.bustracking.*
-import bt.bustracking.R
-import bt.bustracking.receivers.NotificationActionReceiver
+import com.example.bt.CHANEL_ID
+import com.example.bt.EXTRA_BUS_ID
+import com.example.bt.LatLngInterpolator
+import com.example.bt.MarkerAnimation
+import com.example.bt.NotificationActionReceiver
+import com.example.bt.R
+import com.example.bt.fireSettings
+import com.example.bt.mUser
 import kotlinx.android.synthetic.main.activity_maps.*
 import java.util.*
 import kotlin.math.abs

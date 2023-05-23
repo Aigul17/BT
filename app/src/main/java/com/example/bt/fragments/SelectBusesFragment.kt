@@ -1,8 +1,7 @@
-package com.example.bt
+package com.example.bt.fragments
 
 import android.content.Intent
 import android.os.Bundle
-import android.support.v4.app.Fragment
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
@@ -13,12 +12,12 @@ import android.widget.CheckBox
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import com.google.firebase.firestore.FirebaseFirestore
-import bt.bustracking.R
 import bt.bustracking.activities.*
 import bt.bustracking.adapters.SelectableBusAdapter
 import bt.bustracking.models.Bus
-import bt.bustracking.fireSettings
-import bt.bustracking.mUser
+import com.example.bt.R
+import com.example.bt.fireSettings
+import com.example.bt.mUser
 import kotlinx.android.synthetic.main.fragment_select_buses.*
 import java.util.*
 import kotlin.collections.ArrayList

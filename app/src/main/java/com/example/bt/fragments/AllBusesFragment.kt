@@ -1,14 +1,14 @@
-package com.example.bt
+package com.example.bt.fragments
 
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.ListFragment
+import com.example.bt.adapters.SimpleBusAdapter
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.firestore.FirebaseFirestore
-import bt.bustracking.R
-import bt.bustracking.adapters.SimpleBusAdapter
-import bt.bustracking.confirm
+import com.example.bt.R
+import com.example.bt.confirm
 
 
 open class AllBusesFragment : ListFragment() {

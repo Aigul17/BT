@@ -1,4 +1,4 @@
-package com.example.bt
+package com.example.bt.fragments
 
 import android.app.Activity.RESULT_OK
 import android.app.AlertDialog
@@ -6,7 +6,6 @@ import android.content.Intent
 import android.graphics.Bitmap
 import android.os.Bundle
 import android.provider.MediaStore
-import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -15,8 +14,14 @@ import com.google.firebase.auth.UserProfileChangeRequest
 import com.google.firebase.firestore.FirebaseFirestore
 import de.hdodenhof.circleimageview.CircleImageView
 import bt.bustracking.*
-import bt.bustracking.activities.BusDriverActivity
 import bt.bustracking.activities.RegistrationActivity
+import com.example.bt.BusDriverActivity
+import com.example.bt.EXTRA_FIRST_READ
+import com.example.bt.R
+import com.example.bt.alert
+import com.example.bt.cUser
+import com.example.bt.fireSettings
+import com.example.bt.mUser
 import kotlinx.android.synthetic.main.fragment_crteate_profile.*
 
 
@@ -66,7 +71,8 @@ class CreateProfileFragment : Fragment() {
         mUser.approved = false
         if (teacher.isChecked) mUser.role = "teacher"
         else if (bus_driver.isChecked) mUser.role = "driver"
-        FirebaseFirestore.getInstance().also { it.firestoreSettings = fireSettings }.collection("users").document(mUser.uid).set(mUser).addOnSuccessListener {
+        FirebaseFirestore.getInstance().also { it.firestoreSettings = fireSettings }.collection("users").document(
+            mUser.uid).set(mUser).addOnSuccessListener {
             if (!isDetached) {
                 if (mUser.role == "teacher") (activity as RegistrationActivity).showBusSelection()
                 else {

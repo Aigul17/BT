@@ -8,6 +8,7 @@ package com.example.bt
  * See [testing documentation](http://d.android.com/tools/testing).
  */
 
+import com.example.bt.activities.LoginActivity
 import org.junit.Assert.assertEquals
 import org.junit.Before
 import org.junit.Test
