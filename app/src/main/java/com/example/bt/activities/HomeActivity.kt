@@ -17,6 +17,7 @@ import com.firebase.ui.firestore.FirestoreRecyclerOptions
 import com.google.android.material.navigation.NavigationView
 import com.google.firebase.firestore.*
 import com.example.bt.*
+import com.example.bt.R
 import com.example.bt.fragments.OnlineBusesFragment
 import com.example.bt.models.User
 import kotlinx.android.synthetic.main.activity_home.*
@@ -45,7 +46,7 @@ abstract class HomeActivity : BaseActivity(), NavigationView.OnNavigationItemSel
 
         nav_view.setNavigationItemSelectedListener(this)
         sharedPreferences = getSharedPreferences("msg_time", Context.MODE_PRIVATE)
-        if (this is TeacherActivity) {
+        if (this is PassengerActivity) {
             query = FirebaseFirestore.getInstance().also { it.firestoreSettings = fireSettings }.collection("users")
                 .whereEqualTo("approved", true).whereEqualTo("role", "driver")
                 .whereEqualTo("online", true).whereArrayContains("subscribers", mUser.uid)

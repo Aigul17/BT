@@ -23,8 +23,10 @@ import com.google.android.gms.location.LocationServices
 import com.google.android.gms.location.LocationSettingsRequest
 import com.google.firebase.firestore.*
 import com.example.bt.*
-import com.example.bt.activities.BaseActivity
+import com.example.bt.R
+import com.example.bt.fragments.User
 import com.example.bt.models.OnlineBus
+import com.example.bt.services.LocationUpdaterService
 import kotlinx.android.synthetic.main.activity_bus_driver.*
 import kotlinx.android.synthetic.main.activity_home.*
 import java.lang.Exception
@@ -34,7 +36,7 @@ const val REQ_CODE_1 = 111
 const val REQ_CODE_2 = 222
 
 @RequiresApi(Build.VERSION_CODES.S)
-class BusDriverActivity : BaseActivity(), TelephonyCallback.ServiceStateListener {
+abstract class BusDriverActivity : BaseActivity(), TelephonyCallback.ServiceStateListener {
 
     // listen to user approval or deletion
     private lateinit var snapshotListener: EventListener<DocumentSnapshot>
@@ -178,7 +180,7 @@ class BusDriverActivity : BaseActivity(), TelephonyCallback.ServiceStateListener
                     try {
                         it.startResolutionForResult(this@BusDriverActivity, REQ_CODE_2)
                     } catch (ex: Exception) {
-                        Log.e("ERRRR", "Error here...")
+                        Log.e("ERROR", "Error here...")
                         ex.printStackTrace()
                     }
                 } else {

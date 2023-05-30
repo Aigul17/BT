@@ -7,9 +7,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import bt.bustracking.adapters.TabViewPagerAdapter
+import com.example.bt.adapters.TabViewPagerAdapter
 import com.example.bt.R
 import com.example.bt.activities.TransportControllerActivity
+import com.google.android.material.tabs.TabLayout
 import kotlinx.android.synthetic.main.fragment_pending_request.*
 
 class PendingRequestsFragment : Fragment() {
@@ -37,7 +38,7 @@ class PendingRequestsFragment : Fragment() {
 
         if (integer == 0) {
             pbf = (activity as TransportControllerActivity).pendingBusesFragment
-            ptf = (activity as TransportControllerActivity).pendingTeachersFragment
+            ptf = (activity as TransportControllerActivity).pendingPassengersFragment
             setFragments(pbf, ptf)
             integer = 1
         } else {

@@ -2,7 +2,7 @@ package com.example.bt.activities
 
 
 import android.os.Bundle
-import android.support.design.widget.NavigationView
+//import android.support.design.widget.NavigationView
 import android.view.Gravity
 import android.view.MenuItem
 import android.widget.TextView
@@ -18,7 +18,7 @@ class PassengerActivity : HomeActivity(), NavigationView.OnNavigationItemSelecte
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        nav_view.inflateMenu(R.menu.menu_teacher)
+        nav_view.inflateMenu(R.menu.menu_passenger)
         nav_view.menu.findItem(R.id.menu_online_buses).actionView = TextView(this).also {
             it.gravity = Gravity.CENTER
         }

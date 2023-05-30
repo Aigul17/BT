@@ -20,9 +20,11 @@ import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
 import com.example.bt.*
 import com.example.bt.BusDriverActivity
+import com.example.bt.activities.BusDriverActivity
 import com.example.bt.services.LocationUpdaterService
 
 class DeviceStateListener : BroadcastReceiver() {
+    @RequiresApi(Build.VERSION_CODES.S)
     override fun onReceive(context: Context?, intent: Intent?) {
         when (intent?.action) {
             ConnectivityManager.CONNECTIVITY_ACTION -> {

@@ -14,7 +14,7 @@ import com.google.android.gms.maps.*
 import com.google.android.gms.maps.model.*
 import com.google.firebase.firestore.*
 import com.google.firebase.firestore.EventListener
-import bt.bustracking.*
+import com.example.bt.*
 import com.example.bt.CHANEL_ID
 import com.example.bt.EXTRA_BUS_ID
 import com.example.bt.LatLngInterpolator
@@ -144,8 +144,8 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
     override fun onMapReady(googleMap: GoogleMap) {
         mMap = googleMap
         marker = mMap.addMarker(MarkerOptions().position(transportOffice)
-//                .icon(BitmapDescriptorFactory.fromResource(R.drawable.marker))
-        )
+    //                .icon(BitmapDescriptorFactory.fromResource(R.drawable.marker))
+        )!!
 
         mMap.mapType = GoogleMap.MAP_TYPE_HYBRID
         mMap.moveCamera(CameraUpdateFactory.zoomTo(16f))

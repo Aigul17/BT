@@ -13,11 +13,12 @@ import androidx.fragment.app.Fragment
 import com.google.firebase.auth.UserProfileChangeRequest
 import com.google.firebase.firestore.FirebaseFirestore
 import de.hdodenhof.circleimageview.CircleImageView
-import bt.bustracking.*
-import bt.bustracking.activities.RegistrationActivity
+import com.example.bt.*
+import com.example.bt.activities.RegistrationActivity
 import com.example.bt.BusDriverActivity
 import com.example.bt.EXTRA_FIRST_READ
 import com.example.bt.R
+import com.example.bt.activities.BusDriverActivity
 import com.example.bt.alert
 import com.example.bt.cUser
 import com.example.bt.fireSettings
@@ -37,13 +38,13 @@ class CreateProfileFragment : Fragment() {
             AlertDialog.Builder(activity).setTitle(R.string.take_pic_from).setItems(R.array.pic_options) { _, p ->
                 if (p == 0) {
                     val takePictureIntent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
-                    if (takePictureIntent.resolveActivity(activity?.packageManager) != null) {
+                    if (activity?.packageManager?.let { it1 -> takePictureIntent.resolveActivity(it1) } != null) {
                         startActivityForResult(takePictureIntent, CODE_CAMERA)
                     }
                 } else if (p == 1) {
                     val takePictureIntent = Intent(Intent.ACTION_GET_CONTENT)
                     takePictureIntent.type = "image/*"
-                    if (takePictureIntent.resolveActivity(activity?.packageManager) != null) {
+                    if (activity?.packageManager?.let { it1 -> takePictureIntent.resolveActivity(it1) } != null) {
                         startActivityForResult(takePictureIntent, CODE_GALLERY)
                     }
                 }
@@ -69,7 +70,7 @@ class CreateProfileFragment : Fragment() {
         mUser.uid = cUser!!.uid
         if (cUser?.email != null) mUser.identity = contact.text.toString()
         mUser.approved = false
-        if (teacher.isChecked) mUser.role = "teacher"
+        if (passenger.isChecked) mUser.role = "passenger"
         else if (bus_driver.isChecked) mUser.role = "driver"
         FirebaseFirestore.getInstance().also { it.firestoreSettings = fireSettings }.collection("users").document(
             mUser.uid).set(mUser).addOnSuccessListener {

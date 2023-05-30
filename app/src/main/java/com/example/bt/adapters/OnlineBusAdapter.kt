@@ -55,7 +55,7 @@ class OnlineBusAdapter(private val activity: HomeActivity, options: FirestoreRec
                 .setPriority(NotificationManagerCompat.IMPORTANCE_HIGH)
                 .setSound(RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION))
                 .addAction(android.R.drawable.ic_notification_clear_all, activity.getString(R.string.dismiss),
-                    PendingIntent.getBroadcast(activity, nid, i, 0))
+                    PendingIntent.getBroadcast(activity, nid, i, PendingIntent.FLAG_IMMUTABLE))
             if (time != null) {
                 builder.setShowWhen(true)
                 builder.setWhen(time.time)

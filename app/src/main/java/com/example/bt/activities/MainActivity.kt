@@ -9,11 +9,11 @@ import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
-import com.example.bt.ProfileFragment
 import com.example.bt.R
 import com.example.bt.fragments.AboutFragment
 import com.example.bt.fragments.HomeFragment
 import com.example.bt.fragments.PaymentFragment
+import com.example.bt.fragments.ProfileFragment
 import com.google.android.material.navigation.NavigationView
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {

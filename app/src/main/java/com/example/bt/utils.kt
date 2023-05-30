@@ -1,18 +1,19 @@
 package com.example.bt
 import android.content.Context
 import android.support.v7.app.AlertDialog
+import androidx.appcompat.app.AlertDialog
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.firestore.FirebaseFirestoreSettings
-import com.example.bt.bustracking.models.User
+import com.example.bt.fragments.User
 
 const val SPLASH_TIME: Long = 800 // milliseconds
 const val CHANEL_ID = "bm_channel"
 const val EXTRA_NOTIFICATION_ID = "notification_id"
-const val ACTION_HANDLE_PENDING_REQUEST = "friendroid.bustracking.ACTION_HANDLE_PENDING_REQUEST"
-const val ACTION_START_FOREGROUND = "friendroid.bustracking.ACTION_START_FOREGROUND"
-const val ACTION_STOP_FOREGROUND = "friendroid.bustracking.ACTION_STOP_FOREGROUND"
+const val ACTION_HANDLE_PENDING_REQUEST = "com.example.bt.TION_HANDLE_PENDING_REQUEST"
+const val ACTION_START_FOREGROUND = "com.example.bt.ACTION_START_FOREGROUND"
+const val ACTION_STOP_FOREGROUND = "com.example.bt.ACTION_STOP_FOREGROUND"
 
-const val EXTRA_TEACHER_ID = "teacher_id"
+const val EXTRA_PASSENGER_ID = "passenger_id"
 const val EXTRA_BUS_ID = "bus_id"
 const val EXTRA_FIRST_READ = "first_read"
 

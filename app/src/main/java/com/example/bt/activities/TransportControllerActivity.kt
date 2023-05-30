@@ -17,9 +17,9 @@ import com.example.bt.fragments.PendingUsersFragment
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
 import com.google.android.material.navigation.NavigationView
 import com.google.firebase.firestore.FirebaseFirestore
-import example.com.bt.adapters.PendingBusAdapter
-import example.com.bt.adapters.PendingTeacherAdapter
-import example.com.bt.fragments.*
+import com.example.bt.adapters.PendingBusAdapter
+import com.example.bt.adapters.PendingPassengerAdapter
+import com.example.bt.fragments.*
 import kotlinx.android.synthetic.main.activity_home.*
 
 class TransportControllerActivity : HomeActivity(), NavigationView.OnNavigationItemSelectedListener {
@@ -51,7 +51,7 @@ class TransportControllerActivity : HomeActivity(), NavigationView.OnNavigationI
 
         // create fragments
         approvedBusesFragment = AllBusesFragment()
-        approvedTeachersFragment = TeacherListFragment()
+        approvedPassengersFragment = PassengerListFragment()
 
         pendingBusesAdapter = PendingBusAdapter(FirestoreRecyclerOptions.Builder<Any>().setQuery(FirebaseFirestore.getInstance()
             .collection("users").whereEqualTo("role", "driver")
@@ -71,19 +71,19 @@ class TransportControllerActivity : HomeActivity(), NavigationView.OnNavigationI
             it.setAdapter(pendingBusesAdapter)
         }
 
-        pendingTeacherAdapter = PendingTeacherAdapter(
+        pendingTeacherAdapter = PendingPassengerAdapter(
             FirestoreRecyclerOptions.Builder<Any>().setQuery(FirebaseFirestore.getInstance()
                 .also { it.firestoreSettings = fireSettings }
                 .collection("pending"), Any::class.java)
 //                        .setLifecycleOwner(this)
                 .build(), { approveTeacher(it) }, { teacher ->
                 // Start details activity
-                val intent = Intent(this, TeacherDetailsActivity::class.java)
+                val intent = Intent(this, PassengerDetailsActivity::class.java)
                 intent.action = ACTION_HANDLE_PENDING_REQUEST
                 intent.putExtra(EXTRA_TEACHER_ID, teacher["uid"]?.toString())
                 this.startActivity(intent)
             })
-        pendingTeachersFragment = PendingUsersFragment().also {
+        pendingPassengersFragment = PendingUsersFragment().also {
             it.setAdapter(pendingTeacherAdapter)
         }
 
@@ -97,7 +97,7 @@ class TransportControllerActivity : HomeActivity(), NavigationView.OnNavigationI
                     it.isCancelable = false
                 }.show(supportFragmentManager, "ShowInputDialog")
             }
-            R.id.menu_all_teachers -> supportFragmentManager.beginTransaction().replace(R.id.fragment_container, approvedTeachersFragment).commit()
+            R.id.menu_all_passengers -> supportFragmentManager.beginTransaction().replace(R.id.fragment_container, approvedPassengersFragment).commit()
             R.id.menu_all_buses -> supportFragmentManager.beginTransaction().replace(R.id.fragment_container, approvedBusesFragment).commit()
             R.id.menu_pending_requests -> supportFragmentManager.beginTransaction().replace(R.id.fragment_container, pendingRequestsFragment).commit()
         }
@@ -106,7 +106,7 @@ class TransportControllerActivity : HomeActivity(), NavigationView.OnNavigationI
 
     override fun setMenuBadges() {
         super.setMenuBadges()
-        val count = pendingBusesAdapter.itemCount + pendingTeacherAdapter.itemCount
+        val count = pendingBusesAdapter.itemCount + pendingPassengerAdapter.itemCount
         (nav_view.menu.findItem(R.id.menu_pending_requests).actionView as TextView).text = if (count == 0) "" else count.toString()
     }
 
@@ -122,30 +122,30 @@ class TransportControllerActivity : HomeActivity(), NavigationView.OnNavigationI
     override fun onResume() {
         super.onResume()
         // listen data changes
-        pendingTeacherAdapter.startListening()
+        pendingPassengerAdapter.startListening()
         pendingBusesAdapter.startListening()
 
         // observer
-        pendingTeacherAdapter.registerAdapterDataObserver(observer)
+        pendingPassengerAdapter.registerAdapterDataObserver(observer)
         pendingBusesAdapter.registerAdapterDataObserver(observer)
     }
 
     override fun onPause() {
         super.onPause()
-        pendingTeacherAdapter.unregisterAdapterDataObserver(observer)
+        pendingpassengerAdapter.unregisterAdapterDataObserver(observer)
         pendingBusesAdapter.unregisterAdapterDataObserver(observer)
     }
 
-    private fun approveTeacher(teacher: Map<*, *>) {
+    private fun approvePassenger(passenger: Map<*, *>) {
         // Start approval operation
         val batch = FirebaseFirestore.getInstance().batch()
         // set user as approved
         batch.update(FirebaseFirestore.getInstance().collection("users")
-            .document(teacher["uid"]?.toString() ?: "NA"), "approved", true)
-        batch.delete(FirebaseFirestore.getInstance().document("pending/${teacher["uid"]?.toString()
+            .document(passenger["uid"]?.toString() ?: "NA"), "approved", true)
+        batch.delete(FirebaseFirestore.getInstance().document("pending/${passenger["uid"]?.toString()
             ?: "NA"}"))
         // Get all buses
-        if (teacher["buses"] is List<*>) {
+        if (passenger["buses"] is List<*>) {
             FirebaseFirestore.getInstance().collection("users").whereEqualTo("role", "driver")
                 .whereEqualTo("approved", true).get()
                 .addOnCompleteListener { task ->
@@ -155,10 +155,10 @@ class TransportControllerActivity : HomeActivity(), NavigationView.OnNavigationI
                             val subscribers = document["subscribers"]
                             System.out.println("Here are the subscribers : $subscribers ${subscribers?.javaClass}")
                             if (subscribers is ArrayList<*>) {
-                                subscribers.remove(teacher["uid"])
-                                System.out.println("Here are the results : $subscribers ${teacher}")
-                                if ((teacher["buses"] as ArrayList<*>).contains(document["uid"]))
-                                    myList.add(teacher["uid"])
+                                subscribers.remove(passenger["uid"])
+                                System.out.println("Here are the results : $subscribers ${passenger}")
+                                if ((passenger["buses"] as ArrayList<*>).contains(document["uid"]))
+                                    myList.add(passenger["uid"])
                                 myList.addAll(subscribers)
                                 System.out.println("Here are the My Lists : $myList")
 
@@ -176,4 +176,8 @@ class TransportControllerActivity : HomeActivity(), NavigationView.OnNavigationI
                 task.exception?.printStackTrace()
         }
     }
+}
+
+class PassengerListFragment {
+
 }

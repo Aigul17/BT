@@ -11,10 +11,12 @@ import android.widget.Button
 import android.widget.CheckBox
 import android.widget.TextView
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.firestore.FirebaseFirestore
-import bt.bustracking.activities.*
-import bt.bustracking.adapters.SelectableBusAdapter
-import bt.bustracking.models.Bus
+import com.example.bt.activities.*
+import com.example.bt.adapters.SelectableBusAdapter
+import com.example.bt.models.Bus
 import com.example.bt.R
 import com.example.bt.fireSettings
 import com.example.bt.mUser
@@ -112,9 +114,9 @@ class SelectBusesFragment : Fragment() {
         if (!isDetached) {
             progressBar?.visibility = View.INVISIBLE
             next_button.isEnabled = true
-            if (activity is TeacherActivity) {
-                (activity as TeacherActivity).showOnlineBuses()
-            } else startActivity(Intent(activity, TeacherActivity::class.java)).also {
+            if (activity is PassengerActivity) {
+                (activity as PassengerActivity).showOnlineBuses()
+            } else startActivity(Intent(activity, PassengerActivity::class.java)).also {
                 activity?.finish()
             }
         }

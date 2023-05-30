@@ -5,18 +5,22 @@ package com.example.bt.activities
 
 import android.app.Activity
 import android.content.Intent
+import android.os.Build
 import android.os.Bundle
 import android.os.Handler
 import android.view.LayoutInflater
 import android.view.View
 import android.webkit.WebView
 import android.widget.Toast
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.firebase.ui.auth.AuthUI
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.*
 import com.example.bt.*
+import com.example.bt.R
+import com.example.bt.fragments.User
 import me.zhanghai.android.materialprogressbar.MaterialProgressBar
 import java.lang.Exception
 
@@ -58,7 +62,7 @@ abstract class BaseActivity : AppCompatActivity() {
     }
 
     fun showAbout() {
-        val view = LayoutInflater.from(this).inflate(R.layout.about, null)
+        val view = LayoutInflater.from(this).inflate(R.layout.fragment_about, null)
         AlertDialog.Builder(this).setView(view).setPositiveButton(R.string.ok, null).create().show()
         view.findViewById<WebView>(R.id.aboutWebView).apply {
             loadUrl("file:///android_asset/about.html")
@@ -78,6 +82,7 @@ abstract class BaseActivity : AppCompatActivity() {
 
     }
 
+    @RequiresApi(Build.VERSION_CODES.S)
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == LOGIN_REQ_CODE) {
@@ -97,7 +102,7 @@ abstract class BaseActivity : AppCompatActivity() {
                             startActivity(Intent(baseContext, LoginActivity::class.java))
                         } else when (role) {
                             "admin" -> startActivity(Intent(baseContext, TransportControllerActivity::class.java))
-                            "user" -> startActivity(Intent(baseContext, UserActivity::class.java))
+                            "passenger" -> startActivity(Intent(baseContext, PassengerActivity::class.java))
                             "driver" -> startActivity(Intent(baseContext, BusDriverActivity::class.java))
                             else -> startActivity(Intent(baseContext, LoginActivity::class.java))
                         }

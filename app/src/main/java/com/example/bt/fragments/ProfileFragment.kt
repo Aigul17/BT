@@ -1,4 +1,4 @@
-package com.example.bt
+package com.example.bt.fragments
 
 import android.annotation.SuppressLint
 import android.os.Bundle
@@ -10,6 +10,7 @@ import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import com.example.bt.R
 
 
 import com.google.firebase.database.DatabaseReference

@@ -18,4 +18,19 @@
     <string name="turn_on_location">turn on location</string>
     <string name="service_stopped">servide stopped</string>
     <string name="dismiss">dismiss</string>
+    <string name="settings_incompatible" />
+    <string name="navigation_drawer_open" />
+    <string name="navigation_drawer_close" />
+    <string name="confirm_save" />
+    <string name="confirm_delete_id" />
+    <string name="operation_successful" />
+    <string name="op_failed" />
+    <string name="enter_reg_key" />
+    <string name="take_pic_from" />
+    <string name="online_buses" />
+    <string name="pending_requests" />
+    <string name="offline" />
+    <string name="broadcasting" />
+    <string name="sharing_location" />
+    <string name="cancel" />
 </resources>
