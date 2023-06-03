@@ -14,6 +14,7 @@ import com.example.bt.*
 import com.example.bt.adapters.SelectableBusAdapter
 import com.example.bt.models.Bus
 import kotlinx.android.synthetic.main.activity_passenger_details.*
+import kotlinx.coroutines.flow.internal.NoOpContinuation.context
 import java.util.*
 import kotlin.collections.ArrayList
 import kotlin.coroutines.jvm.internal.CompletedContinuation.context
@@ -28,7 +29,7 @@ class PassengerDetailsActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_passenger_details)
-        passengerId = intent.getStringExtra(EXTRA_TEACHER_ID) ?: "NA"
+        passengerId = intent.getStringExtra(EXTRA_PASSENGER_ID) ?: "NA"
         collection = if (intent.action == ACTION_HANDLE_PENDING_REQUEST)
             "pending"
         else "users"

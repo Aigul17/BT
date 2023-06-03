@@ -21,6 +21,7 @@ import com.google.firebase.firestore.*
 import com.example.bt.*
 import com.example.bt.R
 import com.example.bt.fragments.User
+import com.google.android.gms.common.util.CollectionUtils.listOf
 import me.zhanghai.android.materialprogressbar.MaterialProgressBar
 import java.lang.Exception
 

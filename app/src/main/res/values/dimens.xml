@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="padding_large" />
+    <dimen name="profile_pic_size" />
+    <dimen name="profile_pic_border_width" />
+    <dimen name="nav_header_vertical_spacing" />
+    <dimen name="padding_medium" />
+</resources>

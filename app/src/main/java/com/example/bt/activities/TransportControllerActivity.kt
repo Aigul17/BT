@@ -6,7 +6,7 @@ import android.view.Gravity
 import android.view.MenuItem
 import android.widget.TextView
 import com.example.bt.ACTION_HANDLE_PENDING_REQUEST
-import com.example.bt.EXTRA_TEACHER_ID
+import com.example.bt.EXTRA_PASSENGER_ID
 import com.example.bt.R
 import com.example.bt.adapters.SimpleBusAdapter
 import com.example.bt.fragments.AllBusesFragment
@@ -20,7 +20,9 @@ import com.google.firebase.firestore.FirebaseFirestore
 import com.example.bt.adapters.PendingBusAdapter
 import com.example.bt.adapters.PendingPassengerAdapter
 import com.example.bt.fragments.*
+import com.google.android.gms.common.util.CollectionUtils.mapOf
 import kotlinx.android.synthetic.main.activity_home.*
+import java.util.*
 
 class TransportControllerActivity : HomeActivity(), NavigationView.OnNavigationItemSelectedListener {
 

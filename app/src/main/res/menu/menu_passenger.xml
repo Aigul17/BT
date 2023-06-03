@@ -1,4 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/menu_online_buses"
+            android:icon="@drawable/baseline_google_maps_24"
+            android:title="@string/online_buses" />
+        <item
+            android:id="@+id/menu_update_subscription"
+            android:icon="@drawable/baseline_pencil_24"
+            android:title="@string/edit_subscription" />
+    </group>
+    <item android:title="@string/more_options">
+        <menu>
+            <item
+                android:id="@+id/menu_logout"
+                android:icon="@drawable/baseline_logout_24"
+                android:title="@string/logout" />
+            <item
+                android:id="@+id/menu_about"
+                android:icon="@drawable/baseline_info_24"
+                android:title="@string/about" />
+        </menu>
+    </item>
 </menu>
